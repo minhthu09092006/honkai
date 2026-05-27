@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhân Vật - Genshin Impact</title>
+
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Font fantasy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Be Vietnam Pro', sans-serif;
+            background:
+            linear-gradient(rgba(8,18,38,0.93),
+            rgba(8,18,38,0.95)),
+            url('https://images.alphacoders.com/118/1182650.jpg');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+            color:white;
+        }
+
+        /* HEADER */
+        .hero-banner{
+            height:60vh;
+            background:
+            linear-gradient(rgba(0,0,0,0.45),
+            rgba(0,0,0,0.65)),
+            url('https://upload-os-bbs.hoyolab.com/upload/2023/09/29/8009863/cc91d6fcd95d85f1d9033fe97d4e1fd2.jpeg');
+
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero-content h1{
+            font-family:'Cinzel', serif;
+            font-size:60px;
+            color:#f7d58a;
+            text-shadow:0 0 20px rgba(255,215,120,0.5);
+        }
+
+        .hero-content p{
+            margin-top:15px;
+            font-size:20px;
+            color:#e7e7e7;
+        }
+
+        /* NAV */
+        nav{
+            background:rgba(13,25,48,0.92);
+            backdrop-filter:blur(8px);
+            border-bottom:2px solid rgba(255,215,120,0.2);
+            position:sticky;
+            top:0;
+            z-index:999;
+        }
+
+        .menu{
+            width:90%;
+            margin:auto;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:18px 0;
+        }
+
+        #main-menu{
+            list-style:none;
+            display:flex;
+            gap:25px;
+        }
+
+        #main-menu li a{
+            transition:0.3s;
+            font-weight:500;
+        }
+
+        #main-menu li a:hover,
+        .active a{
+            color:#f7d58a;
+        }
+
+        .search-box input{
+            padding:10px;
+            border:none;
+            border-radius:8px;
+            outline:none;
+            width:220px;
+        }
+
+        .search-box button{
+            padding:10px 16px;
+            border:none;
+            border-radius:8px;
+            background:#f7d58a;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        /* CONTENT */
+        .container{
+            width:90%;
+            margin:auto;
+            padding:70px 0;
+        }
+
+        .title{
+            text-align:center;
+            margin-bottom:15px;
+            font-size:42px;
+            font-family:'Cinzel', serif;
+            color:#f7d58a;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#d6d6d6;
+            margin-bottom:50px;
+        }
+
+        /* GRID CARD */
+        .character-grid{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+
+            gap:35px;
+        }
+
+        .character-card{
+            background:
+            rgba(255,255,255,0.08);
+
+            border:2px solid
+            rgba(255,215,120,0.2);
+
+            border-radius:24px;
+
+            overflow:hidden;
+
+            transition:0.4s ease;
+
+            backdrop-filter:blur(10px);
+        }
+
+        .character-card:hover{
+            transform:translateY(-10px);
+            box-shadow:
+            0 0 30px rgba(255,215,120,0.35);
+        }
+
+        .character-card img{
+            width:100%;
+            height:420px;
+            object-fit:cover;
+        }
+
+        .character-info{
+            padding:22px;
+            text-align:center;
+        }
+
+        .character-info h3{
+            color:#f7d58a;
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .element{
+            font-size:15px;
+            margin-bottom:10px;
+            color:#8fd0ff;
+        }
+
+        .description{
+            color:#d6d6d6;
+            line-height:1.7;
+        }
+
+        /* FOOTER */
+        footer{
+            background:rgba(0,0,0,0.55);
+            padding:50px 10%;
+            margin-top:80px;
+            border-top:
+            2px solid rgba(255,215,120,0.2);
+        }
+
+        .footer-grid{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:30px;
+        }
+
+        footer h4{
+            color:#f7d58a;
+            margin-bottom:15px;
+        }
+
+        footer p{
+            color:#d6d6d6;
+            line-height:1.8;
+        }
+
+        .copyright{
+            margin-top:30px;
+            text-align:center;
+            color:#bbb;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px){
+
+            .hero-content h1{
+                font-size:42px;
+            }
+
+            .menu{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            #main-menu{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>NHÂN VẬT GENSHIN IMPACT</h1>
+            <p>Những chiến binh huyền thoại đến từ khắp Teyvat</p>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <div class="menu">
+
+            <ul id="main-menu">
+                <li><a href="trangchu.html">Trang chủ</a></li>
+                <li class="active">
+                    <a href="nhanvat.html">Nhân vật</a>
+                </li>
+                <li><a href="vukhi.html">Vũ khí</a></li>
+                <li><a href="vungdat.html">Vùng đất</a></li>
+            </ul>
+
+            <div class="search-box">
+                <input type="text"
+                placeholder="Tìm nhân vật...">
+
+                <button>Tìm</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="container">
+
+        <h2 class="title">
+            DANH SÁCH NHÂN VẬT
+        </h2>
+
+        <p class="subtitle">
+            Khám phá những nhân vật mạnh mẽ
+            trong thế giới Teyvat
+        </p>
+
+        <div class="character-grid">
+
+            <!-- Furina -->
+            <a href="nv01.html"
+            class="character-card">
+
+                <img src="fu.webp"
+                alt="Furina">
+
+                <div class="character-info">
+                    <h3>Furina</h3>
+
+                    <p class="element">
+                        💧 Fontaine • Hệ Thủy • 5★
+                    </p>
+
+                    <p class="description">
+                        Thủy Thần của Fontaine,
+                        nổi tiếng với sự duyên dáng
+                        và sức mạnh điều khiển nước.
+                    </p>
+                </div>
+
+            </a>
+
+            <!-- Raiden -->
+            <div class="character-card">
+
+                <img src="raiden.webp"
+                alt="Raiden">
+
+                <div class="character-info">
+                    <h3>Raiden Shogun</h3>
+
+                    <p class="element">
+                        ⚡ Inazuma • Hệ Lôi • 5★
+                    </p>
+
+                    <p class="description">
+                        Vị thần cai trị Inazuma,
+                        người theo đuổi vĩnh hằng
+                        bằng thanh Musou no Hitotachi.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Zhongli -->
+            <div class="character-card">
+
+                <img src="zhong.webp"
+                alt="Zhongli">
+
+                <div class="character-info">
+                    <h3>Zhongli</h3>
+
+                    <p class="element">
+                        🪨 Liyue • Hệ Nham • 5★
+                    </p>
+
+                    <p class="description">
+                        Cựu Nham Thần của Liyue,
+                        sở hữu kiến thức sâu rộng
+                        về lịch sử Teyvat.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Nahida -->
+            <div class="character-card">
+
+                <img src="na.webp"
+                alt="Nahida">
+
+                <div class="character-info">
+                    <h3>Nahida</h3>
+
+                    <p class="element">
+                        🌿 Sumeru • Hệ Thảo • 5★
+                    </p>
+
+                    <p class="description">
+                        Tiểu Vương Kusanali,
+                        vị thần trí tuệ với khả năng
+                        kết nối tri thức của thế giới.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Neuvillette -->
+            <div class="character-card">
+
+                <img src="new.webp"
+                alt="Neuvillette">
+
+                <div class="character-info">
+                    <h3>Neuvillette</h3>
+
+                    <p class="element">
+                        💧 Fontaine • Hệ Thủy • 5★
+                    </p>
+
+                    <p class="description">
+                        Đại Thẩm Phán Fontaine,
+                        sở hữu quyền năng cổ xưa
+                        của loài rồng.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Arlecchino -->
+            <div class="character-card">
+
+                <img src="arl.webp"
+                alt="Arlecchino">
+
+                <div class="character-info">
+                    <h3>Arlecchino</h3>
+
+                    <p class="element">
+                        🔥 Fatui • Hệ Hỏa • 5★
+                    </p>
+
+                    <p class="description">
+                        “The Knave” của Fatui,
+                        chiến binh đáng sợ với
+                        sức mạnh nguyên tố hỏa.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h4>THẾ GIỚI TEYVAT</h4>
+                <p>
+                    Một vùng đất kỳ bí nơi
+                    bảy nguyên tố cùng tồn tại.
+                </p>
+            </div>
+
+            <div>
+                <h4>HỖ TRỢ GAME THỦ</h4>
+                <p>
+                    HoYoLAB Community <br>
+                    Event Chính Thức <br>
+                    Hướng Dẫn Tân Thủ
+                </p>
+            </div>
+
+            <div>
+                <h4>KÊNH CHÍNH THỨC</h4>
+                <p>
+                    HoYoLAB <br>
+                    YouTube Genshin Impact <br>
+                    Facebook Official
+                </p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Genshin Impact Fan Website
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vùng Đất Teyvat - Genshin Impact</title>
+
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+
+    <!-- Font Fantasy -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Be Vietnam Pro', sans-serif;
+
+            background:
+            linear-gradient(rgba(8,18,38,0.93),
+            rgba(8,18,38,0.95)),
+            url('https://images.alphacoders.com/118/1182650.jpg');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+            color:white;
+        }
+
+        /* HERO */
+        .hero-banner{
+            height:60vh;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.45),
+            rgba(0,0,0,0.65)),
+            url('https://upload-os-bbs.hoyolab.com/upload/2023/08/17/8009863/43d8b9f9f2db3a90dc68701f1f43f53b.jpeg');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero-content h1{
+            font-family:'Cinzel', serif;
+            font-size:60px;
+            color:#f7d58a;
+            text-shadow:
+            0 0 20px rgba(255,215,120,0.5);
+        }
+
+        .hero-content p{
+            margin-top:15px;
+            font-size:20px;
+            color:#e5e5e5;
+        }
+
+        /* NAV */
+        nav{
+            background:
+            rgba(13,25,48,0.92);
+
+            backdrop-filter:blur(8px);
+
+            border-bottom:
+            2px solid rgba(255,215,120,0.2);
+
+            position:sticky;
+            top:0;
+            z-index:999;
+        }
+
+        .menu{
+            width:90%;
+            margin:auto;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:18px 0;
+        }
+
+        #main-menu{
+            display:flex;
+            list-style:none;
+            gap:25px;
+        }
+
+        #main-menu li a{
+            transition:0.3s;
+            font-weight:500;
+        }
+
+        #main-menu li a:hover,
+        .active a{
+            color:#f7d58a;
+        }
+
+        .search-box input{
+            padding:10px;
+            width:220px;
+            border:none;
+            border-radius:8px;
+            outline:none;
+        }
+
+        .search-box button{
+            padding:10px 16px;
+            border:none;
+            border-radius:8px;
+            background:#f7d58a;
+            font-weight:bold;
+            cursor:pointer;
+        }
+
+        /* CONTENT */
+        .container{
+            width:90%;
+            margin:auto;
+            padding:70px 0;
+        }
+
+        .title{
+            text-align:center;
+            font-family:'Cinzel', serif;
+            color:#f7d58a;
+            font-size:42px;
+            margin-bottom:15px;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#d8d8d8;
+            margin-bottom:50px;
+        }
+
+        /* GRID */
+        .region-grid{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(320px,1fr));
+
+            gap:35px;
+        }
+
+        /* CARD */
+        .region-card{
+            background:
+            rgba(255,255,255,0.08);
+
+            border:
+            2px solid rgba(255,215,120,0.25);
+
+            border-radius:24px;
+            overflow:hidden;
+
+            transition:0.4s ease;
+
+            backdrop-filter:blur(10px);
+        }
+
+        .region-card:hover{
+            transform:translateY(-10px);
+
+            box-shadow:
+            0 0 35px rgba(255,215,120,0.35);
+        }
+
+        .region-card img{
+            width:100%;
+            height:260px;
+            object-fit:cover;
+        }
+
+        .region-info{
+            padding:22px;
+            text-align:center;
+        }
+
+        .region-info h3{
+            color:#f7d58a;
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .region-type{
+            color:#ffe9a7;
+            margin-bottom:10px;
+        }
+
+        .description{
+            color:#d6d6d6;
+            line-height:1.7;
+        }
+
+        /* FOOTER */
+        footer{
+            background:rgba(0,0,0,0.55);
+            padding:50px 10%;
+            margin-top:80px;
+
+            border-top:
+            2px solid rgba(255,215,120,0.2);
+        }
+
+        .footer-grid{
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(250px,1fr));
+
+            gap:30px;
+        }
+
+        footer h4{
+            color:#f7d58a;
+            margin-bottom:15px;
+        }
+
+        footer p{
+            color:#d6d6d6;
+            line-height:1.8;
+        }
+
+        .copyright{
+            text-align:center;
+            margin-top:30px;
+            color:#bbb;
+        }
+
+        /* MOBILE */
+        @media(max-width:768px){
+
+            .hero-content h1{
+                font-size:42px;
+            }
+
+            .menu{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            #main-menu{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>THẾ GIỚI TEYVAT</h1>
+            <p>Khám phá những vùng đất kỳ bí của Genshin Impact</p>
+        </div>
+    </header>
+
+    <!-- MENU -->
+    <nav>
+        <div class="menu">
+
+            <ul id="main-menu">
+                <li><a href="trangchu.html">Trang chủ</a></li>
+                <li><a href="nhanvat.html">Nhân vật</a></li>
+                <li><a href="vukhi.html">Vũ khí</a></li>
+
+                <li class="active">
+                    <a href="vungdat.html">Vùng đất</a>
+                </li>
+            </ul>
+
+            <div class="search-box">
+                <input type="text"
+                placeholder="Tìm vùng đất...">
+
+                <button>Tìm</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="container">
+
+        <h2 class="title">
+            CÁC QUỐC GIA TEYVAT
+        </h2>
+
+        <p class="subtitle">
+            Mỗi quốc gia đại diện cho
+            một nguyên tố và vị thần cai trị
+        </p>
+
+        <div class="region-grid">
+
+            <!-- Mondstadt -->
+            <div class="region-card">
+                <img src="Mondstadt.webp"
+                alt="Mondstadt">
+
+                <div class="region-info">
+                    <h3>Mondstadt</h3>
+                    <p class="region-type">
+                        🌪 Thành Phố Gió • Phong
+                    </p>
+
+                    <p class="description">
+                        Quốc gia của tự do,
+                        nơi Barbatos bảo hộ
+                        và những cơn gió bất tận thổi qua.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Liyue -->
+            <div class="region-card">
+                <img src="li.webp"
+                alt="Liyue">
+
+                <div class="region-info">
+                    <h3>Liyue</h3>
+                    <p class="region-type">
+                        🪨 Vùng Đất Hợp Đồng • Nham
+                    </p>
+
+                    <p class="description">
+                        Một thành phố thương mại hùng mạnh,
+                        được cai trị bởi Nham Thần Rex Lapis.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Inazuma -->
+            <div class="region-card">
+                <img src="ina.webp"
+                alt="Inazuma">
+
+                <div class="region-info">
+                    <h3>Inazuma</h3>
+                    <p class="region-type">
+                        ⚡ Quốc Gia Vĩnh Hằng • Lôi
+                    </p>
+
+                    <p class="description">
+                        Hòn đảo của Raiden Shogun,
+                        nơi theo đuổi sự vĩnh hằng.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Sumeru -->
+            <div class="region-card">
+                <img src="Sumeru.webp"
+                alt="Sumeru">
+
+                <div class="region-info">
+                    <h3>Sumeru</h3>
+                    <p class="region-type">
+                        🌿 Quốc Gia Tri Thức • Thảo
+                    </p>
+
+                    <p class="description">
+                        Nơi học giả và trí tuệ phát triển,
+                        dưới sự dẫn dắt của Nahida.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Fontaine -->
+            <div class="region-card">
+                <img src="Fontaine.webp"
+                alt="Fontaine">
+
+                <div class="region-info">
+                    <h3>Fontaine</h3>
+                    <p class="region-type">
+                        💧 Quốc Gia Công Lý • Thủy
+                    </p>
+
+                    <p class="description">
+                        Một thành phố công nghệ cao,
+                        nổi tiếng với tòa án và luật pháp.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Natlan -->
+            <div class="region-card">
+                <img src="Natlan.webp"
+                alt="Natlan">
+
+                <div class="region-info">
+                    <h3>Natlan</h3>
+                    <p class="region-type">
+                        🔥 Quốc Gia Chiến Tranh • Hỏa
+                    </p>
+
+                    <p class="description">
+                        Vùng đất của chiến binh,
+                        lửa thiêng và những trận chiến huyền thoại.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h4>THẾ GIỚI TEYVAT</h4>
+                <p>
+                    Một hành trình khám phá rộng lớn
+                    với bảy quốc gia đầy bí ẩn.
+                </p>
+            </div>
+
+            <div>
+                <h4>HỖ TRỢ GAME THỦ</h4>
+                <p>
+                    HoYoLAB Community <br>
+                    Event Chính Thức <br>
+                    Hướng dẫn khám phá
+                </p>
+            </div>
+
+            <div>
+                <h4>KÊNH CHÍNH THỨC</h4>
+                <p>
+                    HoYoLAB <br>
+                    YouTube Genshin Impact <br>
+                    Facebook Official
+                </p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Genshin Impact Fan Website
+        </div>
+
+    </footer>
+
+</body>
+</html>

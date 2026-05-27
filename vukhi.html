@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vũ Khí - Genshin Impact</title>
+
+    <!-- FONT -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:'Be Vietnam Pro', sans-serif;
+
+            background:
+            linear-gradient(
+            rgba(8,18,38,0.93),
+            rgba(8,18,38,0.96)),
+            url('https://images.alphacoders.com/118/1182650.jpg');
+
+            background-size:cover;
+            background-position:center;
+            background-attachment:fixed;
+
+            color:white;
+        }
+
+        a{
+            text-decoration:none;
+            color:white;
+        }
+
+        /* ===== HEADER ===== */
+
+        .hero-banner{
+            height:60vh;
+
+            background:
+            linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.65)),
+            url('https://upload-os-bbs.hoyolab.com/upload/2024/01/20/8009863/53cb96df45f5c00fdbb52c1de5d3144.jpeg');
+
+            background-size:cover;
+            background-position:center;
+
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+
+        .hero-content h1{
+            font-family:'Cinzel', serif;
+            font-size:60px;
+            color:#f7d58a;
+
+            text-shadow:
+            0 0 20px rgba(255,215,120,0.4);
+        }
+
+        .hero-content p{
+            margin-top:15px;
+            font-size:20px;
+            color:#e4e4e4;
+        }
+
+        /* ===== NAV ===== */
+
+        nav{
+            background:
+            rgba(13,25,48,0.92);
+
+            backdrop-filter:blur(8px);
+
+            border-bottom:
+            2px solid rgba(255,215,120,0.2);
+
+            position:sticky;
+            top:0;
+            z-index:999;
+        }
+
+        .menu{
+            width:90%;
+            margin:auto;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+
+            padding:18px 0;
+        }
+
+        #main-menu{
+            list-style:none;
+            display:flex;
+            gap:25px;
+        }
+
+        #main-menu li a{
+            transition:0.3s;
+        }
+
+        #main-menu li a:hover,
+        .active a{
+            color:#f7d58a;
+        }
+
+        /* ===== CONTENT ===== */
+
+        .container{
+            width:90%;
+            margin:auto;
+            padding:70px 0;
+        }
+
+        .title{
+            text-align:center;
+            font-family:'Cinzel', serif;
+            font-size:42px;
+            color:#f7d58a;
+            margin-bottom:15px;
+        }
+
+        .subtitle{
+            text-align:center;
+            color:#d7d7d7;
+            margin-bottom:50px;
+        }
+
+        /* ===== GRID ===== */
+
+        .weapon-grid,
+        .review-grid{
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,
+            minmax(280px,1fr));
+
+            gap:35px;
+        }
+
+        /* ===== CARD ===== */
+
+        .weapon-card,
+        .review-card{
+
+            background:
+            rgba(255,255,255,0.08);
+
+            border:
+            2px solid rgba(255,215,120,0.25);
+
+            border-radius:24px;
+
+            overflow:hidden;
+
+            transition:0.4s ease;
+
+            backdrop-filter:blur(10px);
+        }
+
+        .weapon-card:hover,
+        .review-card:hover{
+
+            transform:
+            translateY(-10px);
+
+            box-shadow:
+            0 0 35px
+            rgba(255,215,120,0.35);
+        }
+
+        .weapon-card img,
+        .review-card img{
+
+            width:100%;
+            height:360px;
+
+            object-fit:contain;
+
+            padding:30px;
+
+            background:
+            linear-gradient(
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.01));
+        }
+
+        .card-info{
+            padding:25px;
+            text-align:center;
+        }
+
+        .card-info h3{
+            color:#f7d58a;
+            font-size:28px;
+            margin-bottom:10px;
+        }
+
+        .weapon-type{
+            color:#ffe7a1;
+            margin-bottom:12px;
+        }
+
+        .description{
+            color:#d6d6d6;
+            line-height:1.7;
+        }
+
+        /* ===== REVIEW ===== */
+
+        .review-section{
+            margin-top:100px;
+        }
+
+        .review-btn{
+            margin-top:20px;
+            background:#f7d58a;
+            border:none;
+            padding:12px 22px;
+            border-radius:12px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .review-btn:hover{
+            transform:scale(1.05);
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer{
+            margin-top:80px;
+            background:
+            rgba(0,0,0,0.55);
+
+            padding:50px 10%;
+
+            border-top:
+            2px solid rgba(255,215,120,0.2);
+        }
+
+        .footer-grid{
+            display:grid;
+
+            grid-template-columns:
+            repeat(auto-fit,
+            minmax(250px,1fr));
+
+            gap:30px;
+        }
+
+        footer h4{
+            color:#f7d58a;
+            margin-bottom:15px;
+        }
+
+        footer p{
+            color:#d6d6d6;
+            line-height:1.8;
+        }
+
+        .copyright{
+            text-align:center;
+            margin-top:30px;
+            color:#bbb;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media(max-width:768px){
+
+            .hero-content h1{
+                font-size:42px;
+            }
+
+            .menu{
+                flex-direction:column;
+                gap:20px;
+            }
+
+            #main-menu{
+                flex-wrap:wrap;
+                justify-content:center;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <header class="hero-banner">
+
+        <div class="hero-content">
+
+            <h1>VŨ KHÍ HUYỀN THOẠI</h1>
+
+            <p>
+                Sức mạnh tối thượng của
+                các chiến binh Teyvat
+            </p>
+
+        </div>
+
+    </header>
+
+    <!-- MENU -->
+    <nav>
+
+        <div class="menu">
+
+            <ul id="main-menu">
+
+                <li>
+                    <a href="trangchu.html">
+                        Trang chủ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="nhanvat.html">
+                        Nhân vật
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="vukhi.html">
+                        Vũ khí
+                    </a>
+                </li>
+
+                <li>
+                    <a href="vungdat.html">
+                        Vùng đất
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <!-- CONTENT -->
+    <section class="container">
+
+        <h2 class="title">
+            KHO VŨ KHÍ 5★
+        </h2>
+
+        <p class="subtitle">
+            Những thanh vũ khí mạnh nhất
+            trong thế giới Genshin Impact
+        </p>
+
+        <div class="weapon-grid">
+
+            <div class="weapon-card">
+
+                <img src="homa.webp">
+
+                <div class="card-info">
+
+                    <h3>Trượng Hộ Ma</h3>
+
+                    <p class="weapon-type">
+                        ⭐⭐⭐⭐⭐ • Vũ khí cán dài
+                    </p>
+
+                    <p class="description">
+                        Vũ khí trấn phái của Hu Tao,
+                        nổi tiếng với sát thương cực mạnh.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="weapon-card">
+
+                <img src="nhuocthuy.webp">
+
+                <div class="card-info">
+
+                    <h3>Nhược Thủy</h3>
+
+                    <p class="weapon-type">
+                        ⭐⭐⭐⭐⭐ • Cung
+                    </p>
+
+                    <p class="description">
+                        Vũ khí đặc trưng của Yelan,
+                        thiên về bạo kích mạnh.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- REVIEW -->
+        <section class="review-section">
+
+            <h2 class="title">
+                REVIEW VŨ KHÍ NỔI BẬT
+            </h2>
+
+            <p class="subtitle">
+                Xem chi tiết thông số
+                và hiệu ứng kỹ năng
+            </p>
+
+            <div class="review-grid">
+
+                <a href="reviewvukhi.html"
+                   class="review-card">
+
+                    <img src="haran.webp">
+
+                    <div class="card-info">
+
+                        <h3>
+                            Haran Geppaku Futsu
+                        </h3>
+
+                        <p class="weapon-type">
+                            ⭐⭐⭐⭐⭐ • Kiếm Đơn
+                        </p>
+
+                        <p class="description">
+                            Thanh kiếm trấn phái
+                            của Kamisato Ayato
+                            với chỉ số bạo kích
+                            cực mạnh.
+                        </p>
+
+                        <button class="review-btn">
+                            Xem Review
+                        </button>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+                <h4>THẾ GIỚI TEYVAT</h4>
+
+                <p>
+                    Những vũ khí huyền thoại
+                    được tạo ra từ sức mạnh
+                    nguyên tố cổ xưa.
+                </p>
+            </div>
+
+            <div>
+                <h4>HỖ TRỢ GAME THỦ</h4>
+
+                <p>
+                    Build nhân vật <br>
+                    Event chính thức <br>
+                    HoYoLAB Community
+                </p>
+            </div>
+
+            <div>
+                <h4>KÊNH CHÍNH THỨC</h4>
+
+                <p>
+                    HoYoLAB <br>
+                    YouTube Genshin <br>
+                    Facebook Official
+                </p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Genshin Impact Fan Website
+        </div>
+
+    </footer>
+
+</body>
+</html>
